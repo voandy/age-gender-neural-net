@@ -1,6 +1,6 @@
 # Neural Network Age/Gender Predictor
 
-![Diagram](https://i.imgur.com/W51g1mQ.png)
+![Diagram](https://i.imgur.com/BYduACc.png)
 
 This is a simple neural network based on Keras and TensorFlow. It trains a model to predict a person's age and gender given their response to a number of lifestyle questions. E.g. what film genres they like, what they fear or what their interests are.
 
