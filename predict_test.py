@@ -1,10 +1,8 @@
 import pandas as pd
 from keras.models import load_model
 
-# Load model
+# Load model and scaling data
 model = load_model("model/trained_model.h5")
-
-# Load scaling data
 scaling_df = pd.read_csv("model/scaling.csv")
 
 

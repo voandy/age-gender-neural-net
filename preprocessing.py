@@ -8,12 +8,16 @@ raw_data_df = pd.read_csv("data/responses.csv")
 # Remove spaces from and convert column headings to lowercase
 raw_data_df.columns = [x.lower().replace(" ", "") for x in raw_data_df.columns]
 
-# Drop row with missing responses in gender or age
-raw_data_df = raw_data_df.dropna(subset=['gender', 'age'])
+# Lists columns which are categories rather than ints
+categories = ['house-blockofflats', 'village-town', 'onlychild', 'education', 'left-righthanded', 'gender',
+              'internetusage', 'lying', 'punctuality', 'alcohol', 'smoking']
 
-# Convert strings columns to category series with codes
-for col in ['house-blockofflats', 'village-town', 'onlychild', 'education', 'left-righthanded', 'gender',
-            'internetusage', 'lying', 'punctuality', 'alcohol', 'smoking']:
+# Drop rows with missing responses in gender, age or a categorical field
+raw_data_df = raw_data_df.dropna(subset=['gender', 'age'])
+raw_data_df = raw_data_df.dropna(subset=categories)
+
+# Convert strings in dataframe to category codes
+for col in categories:
   raw_data_df[col] = raw_data_df[col].astype('category').cat.codes
 
 # Select only columns which are intuitively the best predictors of gender/age to avoid over-fitting model
