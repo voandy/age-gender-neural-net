@@ -28,8 +28,8 @@ tensorboard = keras.callbacks.TensorBoard(log_dir="model/logs/", histogram_freq=
 model.fit(X, Y, epochs=100, shuffle=True, callbacks=[tensorboard])
 
 # Evaluate model using testing data
-test_error_rate = model.evaluate(X_test, Y_test, verbose=0) * 100
-print("MSE for test dataset: {0:.2f}%".format(test_error_rate))
+test_error_rate = model.evaluate(X_test, Y_test, verbose=0)
+print("MSE for test dataset: {0:.2f}".format(test_error_rate))
 
 # Export the model
 model.save("model/trained_model.h5")
