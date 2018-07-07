@@ -1,4 +1,5 @@
 import pandas as pd
+import keras
 from keras.models import Sequential
 from keras.layers import *
 
@@ -20,13 +21,11 @@ model.add(Dense(150, activation='relu'))
 model.add(Dense(2, activation='linear'))
 model.compile(loss='mean_squared_error', optimizer='adam')
 
+# Create TensorBoard logs
+tensorboard = keras.callbacks.TensorBoard(log_dir="model/logs/", histogram_freq=1)
+
 # Train the model
-model.fit(
-  X,
-  Y,
-  epochs=50,
-  shuffle=True,
-)
+model.fit(X, Y, epochs=100, shuffle=True, callbacks=[tensorboard])
 
 # Evaluate model using testing data
 test_error_rate = model.evaluate(X_test, Y_test, verbose=0) * 100
