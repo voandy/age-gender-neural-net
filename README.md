@@ -14,8 +14,8 @@ Even when evaluated against a subset of testing data from the same dataset the m
 
 This is no more accurate than a standard multiple linear regression model might perform on the same dataset. 
 
-Attempts to retrain the model on more serious hardware proved fruitless. With the neural netword expanded to 7 layers and trained on a GTX Titan Xp for 100,000 epochs the mean squared error remained the same ~0.09.
+Attempts to retrain the model on more serious hardware proved fruitless. With the neural netword expanded to 7 layers and trained over 100,000 epochs the mean squared error remained the same ~0.09.
 
 Conclusion: Lifestyle factors such as interests and phobias are not good predictors of age and gender. There are simply too many outliers and too much overlap between the interests of the different age groups and genders. 
 
-The height and weight fields were intentionally excluded from the model as they are intutively much better predictors of age and gender (it would be like cheating).
+Note: The height and weight fields were intentionally excluded from the model as they are intutively much better predictors of age and gender (it would be like cheating).
